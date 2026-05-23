@@ -177,7 +177,8 @@ export function PdfViewer({ src, title, preferredMobileWidth }: PdfViewerProps) 
 
         return containerWidth - 2;
       })();
-      const scale = Math.max(0.82, viewportTargetWidth / initialViewport.width);
+      const minScale = preferredMobileWidth ? 0.82 : 0.46;
+      const scale = Math.max(minScale, viewportTargetWidth / initialViewport.width);
       const viewport = page.getViewport({ scale });
       const pixelRatio = typeof window !== "undefined" ? Math.max(1, window.devicePixelRatio || 1) : 1;
 

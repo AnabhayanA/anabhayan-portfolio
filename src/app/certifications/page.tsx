@@ -49,7 +49,7 @@ export default function CertificationsPage() {
         description="Industry-recognized credentials supporting growth across UX research, cloud fundamentals, and professional practice."
       />
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-2">
         {certifications.map((certification, index) => (
           <FadeIn key={certification.title} delay={0.05 * index}>
             <Card className="glass h-full">
@@ -58,12 +58,12 @@ export default function CertificationsPage() {
                   <IssuerIcon issuer={certification.issuer} />
                   {certification.issuer}
                 </div>
-                <CardTitle>{certification.title}</CardTitle>
+                <CardTitle className="text-balance leading-tight">{certification.title}</CardTitle>
                 <CardDescription>
                   {certification.date}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="outline">PDF included</Badge>
                   <Badge variant="outline">{certification.downloadSize}</Badge>
@@ -88,9 +88,9 @@ export default function CertificationsPage() {
                   </Button>
                 </div>
 
-                <div className="space-y-2 rounded-xl border border-border/60 bg-background/40 p-3">
+                <div className="space-y-2 rounded-xl border border-border/60 bg-background/40 p-2.5 sm:p-3">
                   <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">Certificate Preview</p>
-                  <PdfViewer src={certification.download} title={certification.title} preferredMobileWidth={760} />
+                  <PdfViewer src={certification.download} title={certification.title} />
                 </div>
               </CardContent>
             </Card>
