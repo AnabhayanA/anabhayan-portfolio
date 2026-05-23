@@ -72,9 +72,9 @@ export default function UxPage() {
         description="Research and design work organized for quick review, with strongest impact stories presented first."
       />
 
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Featured Case Studies</p>
-        <p className="text-xs text-muted-foreground">Most complete examples of research rigor, synthesis, and outcomes</p>
+        <p className="max-w-md text-xs text-muted-foreground sm:text-right">Most complete examples of research rigor, synthesis, and outcomes</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -86,7 +86,7 @@ export default function UxPage() {
             <FadeIn key={study.slug} delay={0.05 * index}>
               <Card className="glass h-full border-border/80">
                 {coverImage ? (
-                <div className="relative h-44 w-full overflow-hidden rounded-t-xl">
+                <div className="relative h-40 w-full overflow-hidden rounded-t-xl sm:h-44">
                   <Image
                     src={coverImage}
                     alt={`${study.title} cover`}
@@ -97,7 +97,7 @@ export default function UxPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
                 </div>
               ) : (
-                <div className="h-44 w-full rounded-t-xl bg-[linear-gradient(125deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03),rgba(255,255,255,0.12))]" />
+                <div className="h-40 w-full rounded-t-xl bg-[linear-gradient(125deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03),rgba(255,255,255,0.12))] sm:h-44" />
                 )}
                 <CardHeader>
                   {highlight ? (
@@ -157,9 +157,9 @@ export default function UxPage() {
         })}
       </div>
 
-      <div className="mb-4 mt-10 flex items-center justify-between">
+      <div className="mb-4 mt-10 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Additional Case Studies</p>
-        <p className="text-xs text-muted-foreground">Supporting studies that demonstrate method range and product judgment</p>
+        <p className="max-w-md text-xs text-muted-foreground sm:text-right">Supporting studies that demonstrate method range and product judgment</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -170,7 +170,7 @@ export default function UxPage() {
             <FadeIn key={study.slug} delay={0.05 * (index + featuredStudies.length)}>
               <Card className="glass h-full">
                 {coverImage ? (
-                  <div className="relative h-32 w-full overflow-hidden rounded-t-xl">
+                  <div className="relative h-28 w-full overflow-hidden rounded-t-xl sm:h-32">
                     <Image
                       src={coverImage}
                       alt={`${study.title} cover`}
@@ -181,7 +181,7 @@ export default function UxPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
                   </div>
                 ) : (
-                  <div className="h-24 w-full rounded-t-xl bg-[linear-gradient(125deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03),rgba(255,255,255,0.12))]" />
+                  <div className="h-24 w-full rounded-t-xl bg-[linear-gradient(125deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03),rgba(255,255,255,0.12))] sm:h-28" />
                 )}
                 <CardHeader>
                   <CardTitle>{study.title}</CardTitle>

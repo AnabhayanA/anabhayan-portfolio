@@ -1,5 +1,6 @@
 import { ArrowRight, BriefcaseBusiness, GraduationCap, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { FadeIn } from "@/components/site/fade-in";
@@ -9,7 +10,7 @@ import { CountUp } from "@/components/site/count-up";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { quickStats, socialLinks, uxCaseStudies } from "@/lib/site-data";
+import { profilePhoto, quickStats, socialLinks, uxCaseStudies } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -27,25 +28,14 @@ export default function HomePage() {
   } as const;
 
   const socialIconClassNames = {
-    linkedin: "size-3.5 text-[#0A66C2]",
-    github: "size-3.5 text-[#181717] dark:text-[#f5f5f5]",
-    gmail: "size-3.5",
-  } as const;
-
-  const socialLinkClassNames = {
-    linkedin:
-      "border-[#0A66C2]/20 bg-background/75 text-foreground hover:border-[#0A66C2]/35 hover:bg-[#0A66C2]/10",
-    github:
-      "border-[#181717]/20 bg-background/75 text-foreground hover:border-[#181717]/35 hover:bg-[#181717]/10 dark:border-[#f5f5f5]/20 dark:hover:border-[#f5f5f5]/35 dark:hover:bg-[#f5f5f5]/12",
-    gmail: "border-[#EA4335]/20 bg-background/75 text-foreground hover:border-[#EA4335]/35 hover:bg-[#EA4335]/10",
+    linkedin: "social-chip-icon size-3.5 text-[#0A66C2]",
+    github: "social-chip-icon size-3.5 text-[#c9d1d9]",
+    gmail: "social-chip-icon size-3.5 text-[#EA4335]",
   } as const;
 
   return (
     <PageReveal className="page-wrap">
-      <section className="relative overflow-hidden rounded-3xl border border-border/70 bg-[linear-gradient(140deg,rgba(255,250,242,0.72),rgba(244,232,214,0.42))] p-7 md:p-12">
-        <div className="hero-glow -top-8 -left-4 h-52 w-52 bg-[#d6ad82]/22" />
-        <div className="hero-glow right-0 bottom-0 h-44 w-44 bg-[#b58968]/14" />
-
+      <section className="relative overflow-hidden rounded-3xl border border-border/70 bg-[linear-gradient(140deg,rgba(12,12,12,0.94),rgba(8,8,8,0.98))] p-7 md:p-12">
         <FadeIn>
           <Badge variant="secondary" className="mb-5 bg-muted text-foreground">
             Project Manager Portfolio | Open to Internship Opportunities
@@ -90,7 +80,7 @@ export default function HomePage() {
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : undefined}
               rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-              className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium text-foreground transition ${socialLinkClassNames[item.icon]}`}
+              className="social-chip"
             >
               {(() => {
                 const Icon = socialIcons[item.icon];
@@ -105,13 +95,19 @@ export default function HomePage() {
         <FadeIn delay={0.22} className="mt-8 max-w-sm">
           <Card className="glass border-border/70 bg-background/70">
             <CardHeader>
-              <CardTitle className="text-base">Profile Photo Placeholder</CardTitle>
-              <CardDescription>Add your headshot here later.</CardDescription>
+              <CardTitle className="text-base">Profile Photo</CardTitle>
+              <CardDescription>{profilePhoto.caption}</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid place-items-center rounded-2xl border border-dashed border-border/70 bg-background/50 p-6">
-                <div className="grid size-28 place-items-center rounded-full border border-dashed border-border bg-muted/50 text-xs font-semibold tracking-[0.24em] text-muted-foreground uppercase">
-                  Your Photo
+              <div className="overflow-hidden rounded-2xl border border-border/60 bg-background/40">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={profilePhoto.src}
+                    alt={profilePhoto.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 768px) 360px, 100vw"
+                  />
                 </div>
               </div>
             </CardContent>

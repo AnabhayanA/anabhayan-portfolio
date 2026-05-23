@@ -42,10 +42,22 @@ export type DevProject = {
 };
 
 export type LifeMoment = {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image: string;
-  label: string;
+  imageHint?: string;
+  label?: string;
+  location: "campus" | "off-campus";
+  group?: string;
+  imageFit?: "cover" | "contain";
+  imagePosition?: string;
+  imageScale?: number;
+};
+
+export type ProfilePhoto = {
+  src: string;
+  alt: string;
+  caption: string;
 };
 
 export type SocialLink = {
@@ -523,17 +535,115 @@ export const quickStats = [
   { label: "Core Skill Areas", value: "5" },
 ] as const;
 
+export const profilePhoto: ProfilePhoto = {
+  src: "/events/campus/profile.png",
+  alt: "Anabhayan Ahruran at a hackathon",
+  caption: "Hackathon highlight",
+};
+
 export const lifeMoments: LifeMoment[] = [
   {
-    title: "Campus Research Work",
-    description: "Research artifacts from NJIT campus work, showing how I turn observations into design decisions.",
-    image: "/case-studies/njit-campus-buddy/Journey%20Map.png",
-    label: "Campus + UX",
+    title: "Gear Up Event Moment",
+    description: "Gear Up moment representing student engagement, leadership, and community impact.",
+    image: "/events/campus/gear-up-campus.jpeg",
+    label: "On-Campus + Leadership",
+    location: "campus",
+    group: "Gear Up",
   },
   {
-    title: "Career-Ready Presentation",
-    description: "A polished persona deliverable used to communicate findings clearly to classmates and reviewers.",
-    image: "/case-studies/njit-campus-buddy/UX%20Persona.png",
-    label: "Career + Presentation",
+    title: "Gear Up Creative Activity",
+    description: "A mentorship activity snapshot from Gear Up showing hands-on guidance and student support.",
+    image: "/events/campus/gear-up-activity.jpeg",
+    label: "On-Campus + Leadership",
+    location: "campus",
+    group: "Gear Up",
   },
+  {
+    title: "Mentor U Networking Event",
+    description: "Group photo from Mentor U highlighting collaboration, networking, and professional growth.",
+    image: "/events/campus/mentor-u-networking.jpeg",
+    label: "On-Campus + Networking",
+    location: "campus",
+    group: "Mentor U",
+  },
+  {
+    title: "Soccer League Group",
+    description: "Soccer league team moment showing teamwork, commitment, and community involvement.",
+    image: "/events/campus/soccer-league-group.jpg",
+    label: "On-Campus + Teamwork",
+    location: "campus",
+    group: "Soccer League",
+  },
+  {
+    title: "ALPFA Q1 Spring Mixer",
+    image: "/events/off-campus/alpfa-q1-mixer-01.jpeg",
+    label: "Off-Campus + ALPFA",
+    location: "off-campus",
+    group: "ALPFA Spring Q1 Mixer",
+  },
+  {
+    title: "ALPFA Hackathon Host (1)",
+    image: "/events/off-campus/hackathon-host-01.jpeg",
+    label: "Off-Campus + ALPFA",
+    location: "off-campus",
+    group: "ALPFA Hackathon",
+  },
+  {
+    title: "ALPFA Hackathon Host (2)",
+    image: "/events/off-campus/hackathon-host-02.jpeg",
+    label: "Off-Campus + ALPFA",
+    location: "off-campus",
+    group: "ALPFA Hackathon",
+  },
+  {
+    title: "ALPFA Hackathon Host (3)",
+    image: "/events/off-campus/hackathon-host-03.jpeg",
+    label: "Off-Campus + ALPFA",
+    location: "off-campus",
+    group: "ALPFA Hackathon",
+  },
+  {
+    title: "ALPFA RUNB Networking",
+    image: "/events/off-campus/campus-alpfa-runb-networking-01.jpeg",
+    label: "Off-Campus + ALPFA",
+    location: "off-campus",
+    group: "ALPFA RUNB Networking",
+  },
+  {
+    title: "Doctor's Office Team Moment",
+    image: "/events/off-campus/doctors-office-01.jpeg",
+    label: "Off-Campus + Work",
+    location: "off-campus",
+    group: "Doctor's Office",
+  },
+  {
+    title: "Doctor's Office Work Highlight",
+    image: "/events/off-campus/doctors-office-02.jpeg",
+    label: "Off-Campus + Work",
+    location: "off-campus",
+    group: "Doctor's Office",
+    imageFit: "cover",
+    imagePosition: "center 18%",
+    imageScale: 1,
+  },
+  {
+    title: "Microsoft Networking Event",
+    image: "/events/off-campus/microsoft-networking-01.jpeg",
+    label: "Off-Campus + Networking",
+    location: "off-campus",
+    group: "Microsoft Event",
+    imageFit: "cover",
+    imagePosition: "center 38%",
+    imageScale: 1.08,
+  },
+  {
+    title: "SHPE Convention",
+    image: "/events/off-campus/shpe-convention.jpeg",
+    label: "Off-Campus + Professional",
+    location: "off-campus",
+    group: "SHPE Convention",
+  },
+  // Quick add format for new photos:
+  // { image: "/events/campus/your-photo-name.jpeg", location: "campus", group: "ALPFA" },
+  // { image: "/events/off-campus/your-photo-name.jpeg", location: "off-campus", group: "Professional" },
 ] as const;

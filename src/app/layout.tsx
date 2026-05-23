@@ -43,8 +43,8 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${manrope.variable} ${spaceGrotesk.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground selection:bg-[#5d4330]/16 selection:text-foreground">
-        <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_9%_8%,rgba(201,155,112,0.2),transparent_32%),radial-gradient(circle_at_88%_0%,rgba(168,121,91,0.16),transparent_30%),linear-gradient(to_bottom,rgba(131,99,74,0.09),transparent_28%)]" />
+      <body className="min-h-full bg-background text-foreground selection:bg-white/14 selection:text-foreground">
+        <div className="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03),transparent_24%)]" />
         <SiteNavbar />
         {children}
         <SiteFooter />

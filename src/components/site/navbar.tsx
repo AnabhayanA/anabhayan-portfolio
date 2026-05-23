@@ -1,12 +1,13 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { navItems } from "@/lib/site-data";
+import { navItems, profilePhoto } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export function SiteNavbar() {
@@ -48,11 +49,17 @@ export function SiteNavbar() {
         <Link href="/" className="flex items-center gap-3">
           <span
             className={cn(
-              "inline-flex items-center justify-center rounded-full border border-border/80 bg-foreground font-semibold text-background shadow-sm transition-all duration-300",
+              "relative inline-flex overflow-hidden rounded-full border border-border/80 bg-foreground shadow-sm transition-all duration-300",
               isScrolled ? "size-8 text-xs" : "size-9 text-sm"
             )}
           >
-            AA
+            <Image
+              src={profilePhoto.src}
+              alt={profilePhoto.alt}
+              fill
+              className="object-cover"
+              sizes="36px"
+            />
           </span>
           <span
             className={cn(

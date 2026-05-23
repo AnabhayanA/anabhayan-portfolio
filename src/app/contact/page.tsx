@@ -15,21 +15,6 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const iconClassNames = {
-    linkedin: "size-4 text-[#0A66C2]",
-    github: "size-4 text-[#181717] dark:text-[#f5f5f5]",
-    gmail: "size-4",
-  } as const;
-
-  const brandButtonClassNames = {
-    linkedin:
-      "w-full justify-start rounded-full border-[#0A66C2]/20 bg-background/75 text-foreground hover:border-[#0A66C2]/35 hover:bg-[#0A66C2]/10",
-    github:
-      "w-full justify-start rounded-full border-[#181717]/20 bg-background/75 text-foreground hover:border-[#181717]/35 hover:bg-[#181717]/10 dark:border-[#f5f5f5]/20 dark:hover:border-[#f5f5f5]/35 dark:hover:bg-[#f5f5f5]/12",
-    gmail:
-      "w-full justify-start rounded-full border-[#EA4335]/20 bg-background/75 text-foreground hover:border-[#EA4335]/35 hover:bg-[#EA4335]/10",
-  } as const;
-
   return (
     <PageReveal className="page-wrap">
       <SectionHeader
@@ -57,19 +42,19 @@ export default function ContactPage() {
               <CardTitle>Direct Channels</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <Button asChild variant="outline" className={brandButtonClassNames.gmail}>
+              <Button asChild variant="outline" className="social-chip w-full justify-start">
                 <Link href="mailto:aahruran@gmail.com">
-                  <GmailIcon className={iconClassNames.gmail} /> Email
+                  <GmailIcon className="social-chip-icon size-4 text-[#EA4335]" /> Email
                 </Link>
               </Button>
-              <Button asChild variant="outline" className={brandButtonClassNames.linkedin}>
+              <Button asChild variant="outline" className="social-chip w-full justify-start">
                 <Link href="https://www.linkedin.com/in/anabhayan-ahruran2027" target="_blank" rel="noreferrer">
-                  <LinkedInIcon className={iconClassNames.linkedin} /> LinkedIn
+                  <LinkedInIcon className="social-chip-icon size-4 text-[#0A66C2]" /> LinkedIn
                 </Link>
               </Button>
-              <Button asChild variant="outline" className={brandButtonClassNames.github}>
+              <Button asChild variant="outline" className="social-chip w-full justify-start">
                 <Link href="https://github.com/AnabhayanA" target="_blank" rel="noreferrer">
-                  <GitHubIcon className={iconClassNames.github} /> GitHub
+                  <GitHubIcon className="social-chip-icon size-4 text-[#c9d1d9]" /> GitHub
                 </Link>
               </Button>
               <Button asChild className="w-full rounded-full bg-foreground text-background hover:bg-foreground/90">

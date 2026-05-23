@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { FadeIn } from "@/components/site/fade-in";
+import { MomentsSlideshow } from "@/components/site/moments-slideshow";
 import { PageReveal } from "@/components/site/page-reveal";
 import { SectionHeader } from "@/components/site/section-header";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { lifeMoments } from "@/lib/site-data";
+import { lifeMoments, profilePhoto } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "About",
@@ -31,7 +33,8 @@ const educationTimeline = [
 ];
 
 export default function AboutPage() {
-  const polaroidTilts = ["-rotate-1", "rotate-1"];
+  const campusMoments = lifeMoments.filter((moment) => moment.location === "campus");
+  const offCampusMoments = lifeMoments.filter((moment) => moment.location === "off-campus");
 
   return (
     <PageReveal className="page-wrap">
@@ -46,12 +49,18 @@ export default function AboutPage() {
           <Card className="glass h-full">
             <CardHeader>
               <CardTitle>Personal Photo</CardTitle>
-              <CardDescription>A real headshot here helps the site feel more personal and recruiter-ready.</CardDescription>
+              <CardDescription>{profilePhoto.caption}</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid min-h-[280px] place-items-center rounded-2xl border border-dashed border-border/70 bg-background/40 p-6">
-                <div className="grid size-36 place-items-center rounded-full border border-dashed border-border/70 bg-muted/60 text-center text-xs font-semibold tracking-[0.24em] text-muted-foreground uppercase">
-                  Your Photo
+              <div className="overflow-hidden rounded-2xl border border-border/60 bg-background/40">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={profilePhoto.src}
+                    alt={profilePhoto.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                  />
                 </div>
               </div>
             </CardContent>
@@ -186,39 +195,25 @@ export default function AboutPage() {
       </div>
 
       <section className="mt-14">
-        <h2 className="text-2xl md:text-3xl">Campus and Career Highlights</h2>
-        <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          Placeholder gallery for activity photos. Replace these cards with real moments from events, projects, and leadership work.
-        </p>
-        <div className="mt-6 grid gap-4 lg:grid-cols-2">
-          {lifeMoments.map((moment, index) => (
-            <FadeIn key={moment.title} delay={0.06 * index}>
-              <Card
-                className={`h-full border border-border/40 bg-[#f8f4ea] p-4 text-[#1d1a17] shadow-[0_14px_34px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:scale-[1.01] hover:rotate-0 dark:bg-[#f4efe4] ${polaroidTilts[index % polaroidTilts.length]}`}
-              >
-                <div className="space-y-4">
-                  <div className="relative aspect-[4/3] overflow-hidden border border-black/10 bg-[linear-gradient(135deg,#e9ddc6,#f7f1e6_45%,#ddd1bb)] shadow-inner">
-                    <div className="absolute inset-0 grid place-items-center">
-                      <div className="rounded-full border border-black/10 bg-white/70 px-4 py-2 text-center text-xs font-semibold tracking-[0.28em] text-[#6c5f4d] uppercase shadow-sm backdrop-blur">
-                        Photo Placeholder
-                      </div>
-                    </div>
-                    <div className="absolute inset-x-6 bottom-6 rounded-2xl border border-dashed border-black/10 bg-white/35 px-4 py-3 text-center text-sm text-[#5f5344] backdrop-blur-sm">
-                      Replace with a campus event, project showcase, or career milestone photo.
-                    </div>
-                  </div>
-
-                  <div className="px-2 pb-1 text-center">
-                    <p className="text-[0.68rem] font-semibold tracking-[0.3em] text-[#6c5f4d] uppercase">{moment.label}</p>
-                    <CardTitle className="mt-2 text-xl text-inherit">{moment.title}</CardTitle>
-                    <CardDescription className="mt-2 text-sm leading-relaxed text-[#5f5344]">
-                      {moment.description}
-                    </CardDescription>
-                  </div>
-                </div>
-              </Card>
-            </FadeIn>
-          ))}
+        <div className="rounded-3xl border border-white/10 bg-[#080808] p-6 text-zinc-100 shadow-[0_24px_60px_rgba(0,0,0,0.55)] md:p-8">
+          <h2 className="text-2xl md:text-3xl">Campus and Career Highlights</h2>
+          <p className="mt-2 max-w-3xl text-sm text-zinc-400">
+            A black-theme collage wall for your events and career moments. Keep adding photos in
+            <span className="mx-1 font-medium text-zinc-100">lifeMoments</span>
+            inside
+            <span className="mx-1 font-medium text-zinc-100">src/lib/site-data.ts</span>
+            and this wall keeps stacking naturally.
+          </p>
+          <div className="mt-8 space-y-10">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-zinc-100">On-Campus</h3>
+              <MomentsSlideshow moments={campusMoments} locationLabel="Campus" />
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-zinc-100">Off-Campus</h3>
+              <MomentsSlideshow moments={offCampusMoments} locationLabel="Off-Campus" />
+            </div>
+          </div>
         </div>
       </section>
 

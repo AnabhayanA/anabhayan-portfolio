@@ -9,7 +9,7 @@ import { PageReveal } from "@/components/site/page-reveal";
 import { PdfViewer } from "@/components/site/pdf-viewer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { uxCaseStudies } from "@/lib/site-data";
 
 type Props = {
@@ -85,7 +85,7 @@ export default async function UxCaseStudyPage({ params }: Props) {
               <CardTitle>Project Snapshot</CardTitle>
               <CardDescription>Quick context for recruiters and reviewers.</CardDescription>
             </CardHeader>
-            <CardContent className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+            <CardContent className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
               <div className="rounded-2xl border border-border/60 bg-background/35 p-4">
                 <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Role</p>
                 <p className="mt-2 text-sm font-medium text-foreground">{study.snapshot.role}</p>
@@ -142,7 +142,7 @@ export default async function UxCaseStudyPage({ params }: Props) {
               <CardContent>
                 <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
                   {study.artifacts.map((artifact) => (
-                    <Button key={artifact.href} asChild variant="outline" className="justify-start rounded-full">
+                    <Button key={artifact.href} asChild variant="outline" className="h-auto justify-start rounded-full py-2 text-left whitespace-normal">
                       <Link href={artifact.href} target="_blank" rel="noreferrer">
                         {artifact.label}
                         {artifact.kind === "pdf" ? " (PDF)" : ""}

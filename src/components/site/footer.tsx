@@ -10,18 +10,9 @@ const socialIcons = {
 } as const;
 
 const socialIconClassNames = {
-  linkedin: "size-4 text-[#0A66C2]",
-  github: "size-4 text-[#181717] dark:text-[#f5f5f5]",
-  gmail: "size-4",
-} as const;
-
-const socialLinkClassNames = {
-  linkedin:
-    "rounded-full border border-[#0A66C2]/20 bg-[#0A66C2]/8 px-3 py-1.5 text-foreground hover:border-[#0A66C2]/35 hover:bg-[#0A66C2]/14",
-  github:
-    "rounded-full border border-[#181717]/20 bg-[#181717]/8 px-3 py-1.5 text-foreground hover:border-[#181717]/35 hover:bg-[#181717]/14 dark:border-[#f5f5f5]/20 dark:bg-[#f5f5f5]/8 dark:hover:border-[#f5f5f5]/35 dark:hover:bg-[#f5f5f5]/14",
-  gmail:
-    "rounded-full border border-[#EA4335]/20 bg-[#EA4335]/8 px-3 py-1.5 text-foreground hover:border-[#EA4335]/35 hover:bg-[#EA4335]/14",
+  linkedin: "social-chip-icon size-4 text-[#0A66C2]",
+  github: "social-chip-icon size-4 text-[#c9d1d9]",
+  gmail: "social-chip-icon size-4 text-[#EA4335]",
 } as const;
 
 export function SiteFooter() {
@@ -36,7 +27,7 @@ export function SiteFooter() {
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : undefined}
               rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-              className={`inline-flex items-center gap-2 transition-colors ${socialLinkClassNames[item.icon]}`}
+              className="social-chip"
             >
               {(() => {
                 const Icon = socialIcons[item.icon];
