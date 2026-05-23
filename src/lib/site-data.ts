@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/base-path";
+
 export type UxCaseStudy = {
   slug: string;
   title: string;
@@ -130,7 +132,7 @@ export const uxCaseStudies: UxCaseStudy[] = [
     artifacts: [
       {
         label: "Sleep Study Deck (PDF)",
-        href: "/case-studies/college-sleep-patterns-diary-study/sleep-study-deck.pdf",
+        href: withBasePath("/case-studies/college-sleep-patterns-diary-study/sleep-study-deck.pdf"),
         kind: "pdf",
       },
     ],
@@ -181,7 +183,7 @@ export const uxCaseStudies: UxCaseStudy[] = [
     artifacts: [
       {
         label: "Facebook Poke Study Deck (PDF)",
-        href: "/case-studies/facebook-poke-feature-ux-research/fb%20poking%20(2).pptx.pdf",
+        href: withBasePath("/case-studies/facebook-poke-feature-ux-research/fb%20poking%20(2).pptx.pdf"),
         kind: "pdf",
       },
     ],
@@ -232,7 +234,7 @@ export const uxCaseStudies: UxCaseStudy[] = [
     artifacts: [
       {
         label: "Sports Betting Study Deck (PDF)",
-        href: "/case-studies/sports-betting-ethnographic-study/Group%202%20Sports%20Betting%20Ethnographic%20Study.pdf",
+        href: withBasePath("/case-studies/sports-betting-ethnographic-study/Group%202%20Sports%20Betting%20Ethnographic%20Study.pdf"),
         kind: "pdf",
       },
     ],
@@ -283,7 +285,7 @@ export const uxCaseStudies: UxCaseStudy[] = [
     artifacts: [
       {
         label: "Fitness App Study Deck (PDF)",
-        href: "/case-studies/fitness-app-interview-study/Fitness%20Apps.pdf",
+        href: withBasePath("/case-studies/fitness-app-interview-study/Fitness%20Apps.pdf"),
         kind: "pdf",
       },
     ],
@@ -293,7 +295,7 @@ export const uxCaseStudies: UxCaseStudy[] = [
     title: "NJIT Campus Buddy",
     teaser:
       "A student-focused campus assistance prototype designed in Figma to improve navigation, accessibility, and everyday campus support.",
-    coverImage: "/case-studies/njit-campus-buddy/Journey%20Map.png",
+    coverImage: withBasePath("/case-studies/njit-campus-buddy/Journey%20Map.png"),
     problem:
       "Students needed a clearer, more supportive way to navigate campus resources, spaces, and accessibility needs during daily routines.",
     snapshot: {
@@ -335,17 +337,17 @@ export const uxCaseStudies: UxCaseStudy[] = [
     artifacts: [
       {
         label: "Final Project Document",
-        href: "/case-studies/njit-campus-buddy/NJIT%20Campus%20Buddy%20_%20Final%20Project%20Document%20and%20Prototype.pdf",
+        href: withBasePath("/case-studies/njit-campus-buddy/NJIT%20Campus%20Buddy%20_%20Final%20Project%20Document%20and%20Prototype.pdf"),
         kind: "pdf",
       },
       {
         label: "Journey Map",
-        href: "/case-studies/njit-campus-buddy/Journey%20Map.png",
+        href: withBasePath("/case-studies/njit-campus-buddy/Journey%20Map.png"),
         kind: "image",
       },
       {
         label: "Personas",
-        href: "/case-studies/njit-campus-buddy/UX%20Persona.png",
+        href: withBasePath("/case-studies/njit-campus-buddy/UX%20Persona.png"),
         kind: "image",
       },
     ],
@@ -465,7 +467,7 @@ export const certifications = [
     date: "May 2026",
     skills: ["Microsoft Azure", "Cloud Computing"],
     link: "https://www.credential.net/a576f2ddf95ead1c968ef6986765935f3b50f4ce3721cffe2b21bdd0c872b156",
-    download: "/certs/CertificateOfCompletion_Microsoft Azure Essentials Professional Certificate by Microsoft and LinkedIn.pdf",
+    download: withBasePath("/certs/CertificateOfCompletion_Microsoft Azure Essentials Professional Certificate by Microsoft and LinkedIn.pdf"),
     downloadSize: "75 KB",
     logoLabel: "MS",
     logoClassName: "bg-muted text-foreground",
@@ -476,7 +478,7 @@ export const certifications = [
     date: "May 2026",
     skills: ["UX Research", "User Experience (UX)"],
     link: "https://www.linkedin.com/learning/certificates/ed52e3104994106e0d5db664ccc1184ba7cb05feddb18797f6b705b81ce85a3a",
-    download: "/certs/CertificateOfCompletion_UX Foundations Research.pdf",
+    download: withBasePath("/certs/CertificateOfCompletion_UX Foundations Research.pdf"),
     downloadSize: "62 KB",
     logoLabel: "in",
     logoClassName: "bg-muted text-foreground",
@@ -487,7 +489,7 @@ export const certifications = [
     date: "May 2026",
     skills: ["Figma (Software)"],
     link: "https://www.linkedin.com/learning/certificates/10ee048f051aa2377deafeb467f43524f04656056e5d1ed5f9978628ca43d2c3",
-    download: "/certs/CertificateOfCompletion_Figma Essential Training.pdf",
+    download: withBasePath("/certs/CertificateOfCompletion_Figma Essential Training.pdf"),
     downloadSize: "61 KB",
     logoLabel: "in",
     logoClassName: "bg-muted text-foreground",
@@ -498,7 +500,7 @@ export const certifications = [
     date: "Sep 2025 · Expires Sep 2028",
     skills: ["Research Ethics", "Professional Conduct", "Compliance"],
     link: "https://citiprogram.org",
-    download: "/certs/citiCompletionCertificate_14851401_72257546.pdf",
+    download: withBasePath("/certs/citiCompletionCertificate_14851401_72257546.pdf"),
     downloadSize: "111 KB",
     logoLabel: "CITI",
     logoClassName: "bg-muted text-foreground",
@@ -536,7 +538,7 @@ export const quickStats = [
 ] as const;
 
 export const profilePhoto: ProfilePhoto = {
-  src: "/events/campus/profile.png",
+  src: withBasePath("/events/campus/profile.png"),
   alt: "Anabhayan Ahruran at a hackathon",
   caption: "Hackathon highlight",
 };
@@ -545,7 +547,7 @@ export const lifeMoments: LifeMoment[] = [
   {
     title: "Gear Up Event Moment",
     description: "Gear Up moment representing student engagement, leadership, and community impact.",
-    image: "/events/campus/gear-up-campus.jpeg",
+    image: withBasePath("/events/campus/gear-up-campus.jpeg"),
     label: "On-Campus + Leadership",
     location: "campus",
     group: "Gear Up",
@@ -553,7 +555,7 @@ export const lifeMoments: LifeMoment[] = [
   {
     title: "Gear Up Creative Activity",
     description: "A mentorship activity snapshot from Gear Up showing hands-on guidance and student support.",
-    image: "/events/campus/gear-up-activity.jpeg",
+    image: withBasePath("/events/campus/gear-up-activity.jpeg"),
     label: "On-Campus + Leadership",
     location: "campus",
     group: "Gear Up",
@@ -561,7 +563,7 @@ export const lifeMoments: LifeMoment[] = [
   {
     title: "Mentor U Networking Event",
     description: "Group photo from Mentor U highlighting collaboration, networking, and professional growth.",
-    image: "/events/campus/mentor-u-networking.jpeg",
+    image: withBasePath("/events/campus/mentor-u-networking.jpeg"),
     label: "On-Campus + Networking",
     location: "campus",
     group: "Mentor U",
@@ -569,56 +571,56 @@ export const lifeMoments: LifeMoment[] = [
   {
     title: "Soccer League Group",
     description: "Soccer league team moment showing teamwork, commitment, and community involvement.",
-    image: "/events/campus/soccer-league-group.jpg",
+    image: withBasePath("/events/campus/soccer-league-group.jpg"),
     label: "On-Campus + Teamwork",
     location: "campus",
     group: "Soccer League",
   },
   {
     title: "ALPFA Q1 Spring Mixer",
-    image: "/events/off-campus/alpfa-q1-mixer-01.jpeg",
+    image: withBasePath("/events/off-campus/alpfa-q1-mixer-01.jpeg"),
     label: "Off-Campus + ALPFA",
     location: "off-campus",
     group: "ALPFA Spring Q1 Mixer",
   },
   {
     title: "ALPFA Hackathon Host (1)",
-    image: "/events/off-campus/hackathon-host-01.jpeg",
+    image: withBasePath("/events/off-campus/hackathon-host-01.jpeg"),
     label: "Off-Campus + ALPFA",
     location: "off-campus",
     group: "ALPFA Hackathon",
   },
   {
     title: "ALPFA Hackathon Host (2)",
-    image: "/events/off-campus/hackathon-host-02.jpeg",
+    image: withBasePath("/events/off-campus/hackathon-host-02.jpeg"),
     label: "Off-Campus + ALPFA",
     location: "off-campus",
     group: "ALPFA Hackathon",
   },
   {
     title: "ALPFA Hackathon Host (3)",
-    image: "/events/off-campus/hackathon-host-03.jpeg",
+    image: withBasePath("/events/off-campus/hackathon-host-03.jpeg"),
     label: "Off-Campus + ALPFA",
     location: "off-campus",
     group: "ALPFA Hackathon",
   },
   {
     title: "ALPFA RUNB Networking",
-    image: "/events/off-campus/campus-alpfa-runb-networking-01.jpeg",
+    image: withBasePath("/events/off-campus/campus-alpfa-runb-networking-01.jpeg"),
     label: "Off-Campus + ALPFA",
     location: "off-campus",
     group: "ALPFA RUNB Networking",
   },
   {
     title: "Doctor's Office Team Moment",
-    image: "/events/off-campus/doctors-office-01.jpeg",
+    image: withBasePath("/events/off-campus/doctors-office-01.jpeg"),
     label: "Off-Campus + Work",
     location: "off-campus",
     group: "Doctor's Office",
   },
   {
     title: "Doctor's Office Work Highlight",
-    image: "/events/off-campus/doctors-office-02.jpeg",
+    image: withBasePath("/events/off-campus/doctors-office-02.jpeg"),
     label: "Off-Campus + Work",
     location: "off-campus",
     group: "Doctor's Office",
@@ -628,7 +630,7 @@ export const lifeMoments: LifeMoment[] = [
   },
   {
     title: "Microsoft Networking Event",
-    image: "/events/off-campus/microsoft-networking-01.jpeg",
+    image: withBasePath("/events/off-campus/microsoft-networking-01.jpeg"),
     label: "Off-Campus + Networking",
     location: "off-campus",
     group: "Microsoft Event",
@@ -638,7 +640,7 @@ export const lifeMoments: LifeMoment[] = [
   },
   {
     title: "SHPE Convention",
-    image: "/events/off-campus/shpe-convention.jpeg",
+    image: withBasePath("/events/off-campus/shpe-convention.jpeg"),
     label: "Off-Campus + Professional",
     location: "off-campus",
     group: "SHPE Convention",

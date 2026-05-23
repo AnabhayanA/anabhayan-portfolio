@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { withBasePath } from "@/lib/base-path";
 
 type PdfViewerProps = {
   src: string;
@@ -64,13 +65,13 @@ function loadPdfJsRuntime(): Promise<PdfJsModule> {
       }
 
       const script = document.createElement("script");
-      script.src = "/vendor/pdfjs/pdf.min.js";
+      script.src = withBasePath("/vendor/pdfjs/pdf.min.js");
       script.async = true;
       script.dataset.pdfjsRuntime = "true";
       script.onload = () => {
         if (window.pdfjsLib) {
           if (window.pdfjsLib.GlobalWorkerOptions) {
-            window.pdfjsLib.GlobalWorkerOptions.workerSrc = "/vendor/pdfjs/pdf.worker.min.js";
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc = withBasePath("/vendor/pdfjs/pdf.worker.min.js");
           }
           resolve(window.pdfjsLib);
         } else {
