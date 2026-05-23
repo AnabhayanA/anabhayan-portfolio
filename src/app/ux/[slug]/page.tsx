@@ -143,12 +143,12 @@ export default async function UxCaseStudyPage({ params }: Props) {
                 <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
                   {study.artifacts.map((artifact) => (
                     <Button key={artifact.href} asChild variant="outline" className="h-auto justify-start rounded-full py-2 text-left whitespace-normal">
-                      <Link href={artifact.href} target="_blank" rel="noreferrer">
+                      <a href={artifact.href} target="_blank" rel="noreferrer">
                         {artifact.label}
                         {artifact.kind === "pdf" ? " (PDF)" : ""}
                         {artifact.kind === "image" ? " (Image)" : ""}
                         {artifact.kind === "slides" ? " (Slides)" : ""}
-                      </Link>
+                      </a>
                     </Button>
                   ))}
                 </div>
@@ -164,14 +164,14 @@ export default async function UxCaseStudyPage({ params }: Props) {
 
                           <div className="grid gap-2 sm:grid-cols-2">
                             <Button asChild variant="outline" className="rounded-full">
-                              <Link href={artifact.href} target="_blank" rel="noreferrer">
+                              <a href={artifact.href} target="_blank" rel="noreferrer">
                                 <ExternalLink className="size-4" /> Open PDF
-                              </Link>
+                              </a>
                             </Button>
                             <Button asChild className="rounded-full">
-                              <Link href={artifact.href} download>
+                              <a href={artifact.href} download>
                                 <Download className="size-4" /> Download PDF
-                              </Link>
+                              </a>
                             </Button>
                           </div>
                         </div>

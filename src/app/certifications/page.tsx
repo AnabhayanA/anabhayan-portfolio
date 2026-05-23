@@ -82,9 +82,9 @@ export default function CertificationsPage() {
                     </Link>
                   </Button>
                   <Button asChild className="w-full rounded-full">
-                    <Link href={certification.download} target="_blank" download>
+                    <a href={certification.download} target="_blank" rel="noreferrer" download>
                       Download PDF
-                    </Link>
+                    </a>
                   </Button>
                 </div>
 
