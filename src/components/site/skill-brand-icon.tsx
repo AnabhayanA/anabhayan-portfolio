@@ -10,7 +10,7 @@ import {
   Workflow,
   type LucideIcon,
 } from "lucide-react";
-import type { SVGProps } from "react";
+import type { ReactElement, SVGProps } from "react";
 
 type IconProps = {
   className?: string;
@@ -180,7 +180,7 @@ const fallbackBySkill: Record<string, LucideIcon> = {
   "Agile Methods": Workflow,
 };
 
-const brandIcons: Record<string, (props: IconProps) => JSX.Element> = {
+const brandIcons: Record<string, (props: IconProps) => ReactElement> = {
   Figma: FigmaIcon,
   HTML: HtmlIcon,
   CSS: CssIcon,

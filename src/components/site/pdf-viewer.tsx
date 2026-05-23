@@ -148,14 +148,16 @@ export function PdfViewer({ src, title }: PdfViewerProps) {
   const totalPages = useMemo(() => pdfDocument?.numPages ?? 0, [pdfDocument]);
 
   useEffect(() => {
-    if (!pdfDocument || !canvasRef.current || !containerWidth) {
+    const documentInstance = pdfDocument;
+
+    if (!documentInstance || !canvasRef.current || !containerWidth) {
       return;
     }
 
     let cancelled = false;
 
-    async function renderPage() {
-      const page = await pdfDocument.getPage(pageNumber);
+    async function renderPage(activeDocument: PdfJsDocument) {
+      const page = await activeDocument.getPage(pageNumber);
       const initialViewport = page.getViewport({ scale: 1 });
       const scale = Math.max(0.5, (containerWidth - 2) / initialViewport.width);
       const viewport = page.getViewport({ scale });
@@ -178,7 +180,7 @@ export function PdfViewer({ src, title }: PdfViewerProps) {
       }
     }
 
-    void renderPage();
+    void renderPage(documentInstance);
 
     return () => {
       cancelled = true;
