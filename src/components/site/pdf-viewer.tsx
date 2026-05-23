@@ -97,6 +97,10 @@ export function PdfViewer({ src, title, preferredMobileWidth }: PdfViewerProps) 
   const [error, setError] = useState<string | null>(null);
   const [containerWidth, setContainerWidth] = useState(720);
 
+  const containerClassName = preferredMobileWidth
+    ? "w-full overflow-x-auto overflow-y-hidden rounded-xl border border-border/50 bg-background sm:overflow-hidden"
+    : "w-full overflow-hidden rounded-xl border border-border/50 bg-background";
+
   useEffect(() => {
     setIsLoading(true);
     setError(null);
@@ -207,7 +211,7 @@ export function PdfViewer({ src, title, preferredMobileWidth }: PdfViewerProps) 
 
   return (
     <div className="space-y-3">
-      <div ref={containerRef} className="w-full overflow-x-auto rounded-xl border border-border/50 bg-background">
+      <div ref={containerRef} className={containerClassName}>
         {isLoading ? (
           <div className="grid min-h-[260px] place-items-center text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-2">
