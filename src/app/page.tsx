@@ -35,7 +35,7 @@ export default function HomePage() {
 
   return (
     <PageReveal className="page-wrap">
-      <section className="relative overflow-hidden rounded-3xl border border-border/70 bg-[linear-gradient(140deg,rgba(12,12,12,0.94),rgba(8,8,8,0.98))] p-7 md:p-12">
+      <section className="hero-atmosphere relative overflow-hidden rounded-3xl border border-border/70 bg-[linear-gradient(140deg,rgba(12,12,12,0.94),rgba(8,8,8,0.98))] p-7 md:p-12">
         <FadeIn>
           <Badge variant="secondary" className="mb-5 bg-muted text-foreground">
             Project Manager Portfolio | Open to Internship Opportunities
@@ -60,7 +60,7 @@ export default function HomePage() {
         </FadeIn>
 
         <FadeIn delay={0.15} className="mt-8 flex flex-wrap gap-3">
-          <Button asChild className="rounded-full bg-foreground text-background hover:bg-foreground/90">
+          <Button asChild className="motion-cta rounded-full bg-foreground text-background hover:bg-foreground/90">
             <Link href="/ux">
               View PM Case Studies <ArrowRight className="size-4" />
             </Link>
@@ -118,7 +118,7 @@ export default function HomePage() {
       <section className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {quickStats.map((item, index) => (
           <FadeIn key={item.label} delay={0.05 * index}>
-            <Card className="glass">
+            <Card className="glass motion-card">
               <CardHeader>
                 <CardDescription>{item.label}</CardDescription>
                 <CardTitle className="text-3xl text-foreground">
@@ -146,7 +146,7 @@ export default function HomePage() {
         <div className="grid gap-4 md:grid-cols-3">
           {featuredCases.map((item, index) => (
             <FadeIn key={item.slug} delay={0.06 * index}>
-              <Card className="glass h-full">
+              <Card className="glass motion-card h-full">
                 <CardHeader>
                   <CardTitle>{item.title}</CardTitle>
                   <CardDescription>{item.teaser}</CardDescription>
@@ -173,7 +173,7 @@ export default function HomePage() {
 
       <section className="mt-16 grid gap-4 md:grid-cols-3">
         <FadeIn>
-          <Card className="glass h-full">
+          <Card className="glass motion-card h-full">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
                 <BriefcaseBusiness className="size-4 text-foreground/70" /> Internship Ready
@@ -185,7 +185,7 @@ export default function HomePage() {
           </Card>
         </FadeIn>
         <FadeIn delay={0.06}>
-          <Card className="glass h-full">
+          <Card className="glass motion-card h-full">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
                 <GraduationCap className="size-4 text-foreground/70" /> NJIT Information Systems
@@ -195,7 +195,7 @@ export default function HomePage() {
           </Card>
         </FadeIn>
         <FadeIn delay={0.12}>
-          <Card className="glass h-full">
+          <Card className="glass motion-card h-full">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
                 <Sparkles className="size-4 text-foreground/70" /> Human-Centered + Technical

@@ -168,6 +168,59 @@
     @apply transition-colors;
   }
 
+  .hero-atmosphere {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-atmosphere::after {
+    content: "";
+    position: absolute;
+    inset: -45% -25% auto;
+    height: 70%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0));
+    pointer-events: none;
+    animation: hero-orbit 16s ease-in-out infinite;
+  }
+
+  .motion-card {
+    transition:
+      transform 620ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      border-color 360ms ease,
+      box-shadow 520ms ease;
+  }
+
+  .motion-card:hover {
+    transform: translateY(-6px);
+    border-color: rgb(255 255 255 / 24%);
+    box-shadow: 0 16px 30px rgb(0 0 0 / 34%);
+  }
+
+  .motion-cta {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .motion-cta::before {
+    content: "";
+    position: absolute;
+    top: -120%;
+    left: -20%;
+    width: 38%;
+    height: 320%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: rotate(18deg);
+    animation: cta-shimmer 4.4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .motion-cta > * {
+    position: relative;
+    z-index: 1;
+  }
+
   .photo-card {
     --stack-transform: none;
     transition:
@@ -305,9 +358,51 @@
     }
   }
 
+  @keyframes hero-orbit {
+    0%,
+    100% {
+      transform: translateY(-8%) scale(1);
+      opacity: 0.36;
+    }
+
+    50% {
+      transform: translateY(10%) scale(1.08);
+      opacity: 0.62;
+    }
+  }
+
+  @keyframes cta-shimmer {
+    0%,
+    12% {
+      transform: translateX(-220%) rotate(18deg);
+      opacity: 0;
+    }
+
+    26% {
+      transform: translateX(250%) rotate(18deg);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(250%) rotate(18deg);
+      opacity: 0;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .comic-track {
       animation: none;
+    }
+
+    .hero-atmosphere::after,
+    .motion-cta::before {
+      animation: none;
+    }
+
+    .motion-card,
+    .motion-card:hover {
+      transform: none;
+      box-shadow: none;
     }
   }
 }

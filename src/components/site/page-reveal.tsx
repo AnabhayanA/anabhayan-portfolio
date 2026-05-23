@@ -11,9 +11,9 @@ type PageRevealProps = {
 export function PageReveal({ children, className }: PageRevealProps) {
   return (
     <motion.main
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 18, scale: 0.994 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
