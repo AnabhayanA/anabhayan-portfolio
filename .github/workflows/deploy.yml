@@ -36,6 +36,9 @@ jobs:
           NODE_ENV: production
         run: npm run build
 
+      - name: Disable Jekyll processing
+        run: touch ./out/.nojekyll
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
