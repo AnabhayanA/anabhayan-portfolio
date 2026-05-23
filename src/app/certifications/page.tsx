@@ -90,7 +90,7 @@ export default function CertificationsPage() {
 
                 <div className="space-y-2 rounded-xl border border-border/60 bg-background/40 p-3">
                   <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">Certificate Preview</p>
-                  <PdfViewer src={certification.download} title={certification.title} />
+                  <PdfViewer src={certification.download} title={certification.title} preferredMobileWidth={760} />
                 </div>
               </CardContent>
             </Card>
