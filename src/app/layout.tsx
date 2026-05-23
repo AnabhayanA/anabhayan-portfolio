@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     template: "%s | Anabhayan Ahruran",
   },
   description:
-    "Premium internship-focused portfolio for Anabhayan Ahruran, Information Systems student at NJIT specializing in UX, product design, web development, and cloud technology.",
+    "Project management portfolio for Anabhayan Ahruran, a first-generation Information Systems student at NJIT with strengths in UX, product design, web development, and cross-functional delivery.",
   openGraph: {
     title: "Anabhayan Ahruran | Portfolio",
     description:
-      "Internship-ready portfolio with distinct UX and development tracks, case studies, certifications, and technical projects.",
+      "Internship-ready project management portfolio featuring UX case studies, technical projects, certifications, and leadership-focused delivery work.",
     type: "website",
   },
 };
@@ -41,10 +41,10 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${manrope.variable} ${spaceGrotesk.variable} dark h-full scroll-smooth antialiased`}
+      className={`${manrope.variable} ${spaceGrotesk.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground selection:bg-white/20 selection:text-foreground">
-        <div className="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.04),transparent_28%),radial-gradient(circle_at_top,rgba(255,255,255,0.04),transparent_36%)]" />
+      <body className="min-h-full bg-background text-foreground selection:bg-[#5d4330]/16 selection:text-foreground">
+        <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_9%_8%,rgba(201,155,112,0.2),transparent_32%),radial-gradient(circle_at_88%_0%,rgba(168,121,91,0.16),transparent_30%),linear-gradient(to_bottom,rgba(131,99,74,0.09),transparent_28%)]" />
         <SiteNavbar />
         {children}
         <SiteFooter />

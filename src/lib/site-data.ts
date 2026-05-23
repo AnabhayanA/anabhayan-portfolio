@@ -3,6 +3,13 @@ export type UxCaseStudy = {
   title: string;
   teaser: string;
   coverImage?: string;
+  snapshot: {
+    role: string;
+    timeline: string;
+    collaboration: string;
+    scope: string;
+    impact: string;
+  };
   problem: string;
   research: string[];
   process: string[];
@@ -22,6 +29,11 @@ export type DevProject = {
   title: string;
   description: string;
   category: "Frontend" | "Full Stack" | "Cloud" | "AI";
+  snapshot: {
+    role: string;
+    scope: string;
+    impact: string;
+  };
   tech: string[];
   features: string[];
   github: string;
@@ -29,22 +41,35 @@ export type DevProject = {
   videoLink?: string;
 };
 
+export type LifeMoment = {
+  title: string;
+  description: string;
+  image: string;
+  label: string;
+};
+
+export type SocialLink = {
+  label: string;
+  href: string;
+  icon: "linkedin" | "github" | "gmail";
+};
+
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/ux", label: "UX" },
-  { href: "/development", label: "Development" },
+  { href: "/development", label: "Projects" },
   { href: "/certifications", label: "Certifications" },
   { href: "/skills", label: "Skills" },
   { href: "/resume", label: "Resume" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
-export const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com" },
-  { label: "GitHub", href: "https://github.com" },
-  { label: "Email", href: "mailto:anabhayan@example.com" },
-] as const;
+export const socialLinks: SocialLink[] = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/anabhayan-ahruran2027", icon: "linkedin" },
+  { label: "GitHub", href: "https://github.com/AnabhayanA", icon: "github" },
+  { label: "Email", href: "mailto:aahruran@gmail.com", icon: "gmail" },
+];
 
 export const uxCaseStudies: UxCaseStudy[] = [
   {
@@ -54,6 +79,13 @@ export const uxCaseStudies: UxCaseStudy[] = [
       "A 4-day longitudinal diary study examining how nighttime routines impact sleep quality, mood, and academic readiness.",
     problem:
       "Limited understanding of how college student behavior patterns correlate with sleep outcomes and academic performance.",
+    snapshot: {
+      role: "Research lead and study designer",
+      timeline: "4-day longitudinal study plus synthesis",
+      collaboration: "Small academic study with 4 participants",
+      scope: "Night and morning diary prompts, mixed methods analysis, and recommendation framing",
+      impact: "Identified 3 recurring routine patterns that improved sleep quality and readiness",
+    },
     research: [
       "Recruited 4 college participants for multi-day diary study.",
       "Collected daily digital diary entries via Google Forms (night and morning).",
@@ -98,6 +130,13 @@ export const uxCaseStudies: UxCaseStudy[] = [
       "A UX research scenario study evaluating the relevance of Facebook's Poke feature among users 25–50, with agile adaptation for rapid delivery.",
     problem:
       "Unclear whether Facebook's Poke feature remains relevant for core demographics or should be retained, redesigned, or removed.",
+    snapshot: {
+      role: "UX researcher and product strategist",
+      timeline: "3-day rapid research sprint",
+      collaboration: "Solo scenario with targeted interview planning",
+      scope: "Semi-structured interviews, demographic targeting, and recommendation synthesis",
+      impact: "Delivered a clear retain/redesign/remove recommendation backed by user evidence",
+    },
     research: [
       "Designed semi-structured interview protocol targeting Poke feature users.",
       "Developed targeted recruitment strategy for ages 25–50 demographic.",
@@ -142,6 +181,13 @@ export const uxCaseStudies: UxCaseStudy[] = [
       "An ethnographic study exploring how sports betting has become woven into everyday social behavior, with user personas for app design.",
     problem:
       "Limited insight into naturalistic sports betting behaviors and the social/emotional drivers behind platform use and engagement.",
+    snapshot: {
+      role: "Ethnographic observer and persona builder",
+      timeline: "Observation sessions plus synthesis and persona development",
+      collaboration: "Team-based field research with structured note-taking",
+      scope: "Behavioral observation, archetype synthesis, and design opportunity mapping",
+      impact: "Identified 3 bettor personas that informed product and UX recommendations",
+    },
     research: [
       "Observed 8 participants (ages 21+) using FanDuel and DraftKings in naturalistic settings.",
       "Collected behavioral and social interaction data through structured observation.",
@@ -186,6 +232,13 @@ export const uxCaseStudies: UxCaseStudy[] = [
       "A semi-structured interview study with 8 gym-goers uncovering pain points and preferences for fitness app redesign.",
     problem:
       "Users felt fragmented by too many fitness tools and wanted a single, streamlined app replacing their current toolkit.",
+    snapshot: {
+      role: "Interview moderator and synthesis lead",
+      timeline: "Interview series plus affinity analysis",
+      collaboration: "Small research team with shared synthesis",
+      scope: "Semi-structured interviews, affinity diagramming, and persona creation",
+      impact: "Revealed a strong preference for consolidation over feature overload",
+    },
     research: [
       "Conducted semi-structured interviews with 8 gym-goers (ages 19–23).",
       "Explored pain points around routine tracking, app engagement, and gym environment.",
@@ -231,6 +284,13 @@ export const uxCaseStudies: UxCaseStudy[] = [
     coverImage: "/case-studies/njit-campus-buddy/Journey%20Map.png",
     problem:
       "Students needed a clearer, more supportive way to navigate campus resources, spaces, and accessibility needs during daily routines.",
+    snapshot: {
+      role: "UX contributor on a team prototype",
+      timeline: "Semester project with iterative Figma design",
+      collaboration: "Team project in the Designing the User Experience course",
+      scope: "Personas, journey maps, wireframes, and prototype flow refinement",
+      impact: "Delivered a polished prototype and received a perfect evaluation score",
+    },
     research: [
       "Collaborated on user research in the Designing the User Experience course at NJIT.",
       "Identified pain points around campus navigation, accessibility, and support workflows.",
@@ -286,6 +346,11 @@ export const devProjects: DevProject[] = [
     description:
       "A full-stack inventory management system built for NJIT's IT202 course, supporting complete CRUD functionality with secure authentication and real-time analytics.",
     category: "Full Stack",
+    snapshot: {
+      role: "Full-stack developer",
+      scope: "CRUD workflows, secure login, AJAX analytics, and MySQL-backed data management",
+      impact: "Delivered a production-style inventory system with real-time reporting and filtering",
+    },
     tech: ["JavaScript", "PHP", "MySQL", "AJAX", "XML"],
     features: [
       "Complete CRUD functionality for laptop categories and items",
@@ -301,6 +366,11 @@ export const devProjects: DevProject[] = [
     description:
       "An AI-driven platform helping students locate available rooms and nearest campus outlets in real-time with interactive maps and user-friendly interface.",
     category: "Full Stack",
+    snapshot: {
+      role: "Full-stack product builder",
+      scope: "Room availability, campus mapping, and crowdsourced reporting",
+      impact: "Explored AI-assisted navigation for day-to-day campus problem solving",
+    },
     tech: ["React", "Next.js", "Node.js", "Google Maps API"],
     features: [
       "Real-time room availability suggestions",
@@ -316,6 +386,11 @@ export const devProjects: DevProject[] = [
     description:
       "A comprehensive multi-site web platform with four interconnected websites featuring responsive design, accessibility, and SEO optimization deployed on GitHub Pages.",
     category: "Frontend",
+    snapshot: {
+      role: "Frontend developer and systems organizer",
+      scope: "Four connected websites, semantic HTML, responsive CSS, and JS interactions",
+      impact: "Earned Lighthouse scores in the 95–98 range with polished cross-site navigation",
+    },
     tech: ["HTML5", "CSS3", "Vanilla JavaScript", "Semantic HTML"],
     features: [
       "Four interconnected responsive websites",
@@ -332,6 +407,11 @@ export const devProjects: DevProject[] = [
     description:
       "Front-end developer for ALPFA Inc's official NJIT chapter website, building React/Next.js components with Google Calendar integration and responsive design.",
     category: "Frontend",
+    snapshot: {
+      role: "Frontend developer",
+      scope: "Live student organization website with calendar integration and responsive UI",
+      impact: "Helped support a real campus organization with production-facing design work",
+    },
     tech: ["React", "Next.js", "Tailwind CSS", "Google Calendar API", "GitHub"],
     features: [
       "Interactive front-end components with React",
@@ -348,6 +428,11 @@ export const devProjects: DevProject[] = [
     description:
       "A real-time chat application demonstrating client-server communication and event-driven programming with clean, intuitive user interface design.",
     category: "Full Stack",
+    snapshot: {
+      role: "Systems-focused full-stack developer",
+      scope: "Socket programming, event-driven interactions, and messaging flows",
+      impact: "Demonstrated real-time communication and client-server architecture fundamentals",
+    },
     tech: ["Java", "JavaScript", "Networking", "Socket Programming"],
     features: [
       "Real-time bidirectional communication",
@@ -436,4 +521,19 @@ export const quickStats = [
   { label: "Technical Projects", value: "5" },
   { label: "Certifications", value: "4" },
   { label: "Core Skill Areas", value: "5" },
+] as const;
+
+export const lifeMoments: LifeMoment[] = [
+  {
+    title: "Campus Research Work",
+    description: "Research artifacts from NJIT campus work, showing how I turn observations into design decisions.",
+    image: "/case-studies/njit-campus-buddy/Journey%20Map.png",
+    label: "Campus + UX",
+  },
+  {
+    title: "Career-Ready Presentation",
+    description: "A polished persona deliverable used to communicate findings clearly to classmates and reviewers.",
+    image: "/case-studies/njit-campus-buddy/UX%20Persona.png",
+    label: "Career + Presentation",
+  },
 ] as const;

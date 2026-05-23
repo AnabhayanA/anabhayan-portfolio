@@ -1,8 +1,11 @@
+import { Award, BadgeCheck } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { LinkedInIcon } from "@/components/site/brand-icons";
 import { FadeIn } from "@/components/site/fade-in";
 import { PageReveal } from "@/components/site/page-reveal";
+import { PdfViewer } from "@/components/site/pdf-viewer";
 import { SectionHeader } from "@/components/site/section-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -14,28 +17,50 @@ export const metadata: Metadata = {
   description: "Professional certifications and continuing education credentials.",
 };
 
+function IssuerIcon({ issuer }: { issuer: string }) {
+  if (issuer.includes("Microsoft")) {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5">
+        <rect x="3" y="3" width="8" height="8" fill="#F25022" />
+        <rect x="13" y="3" width="8" height="8" fill="#7FBA00" />
+        <rect x="3" y="13" width="8" height="8" fill="#00A4EF" />
+        <rect x="13" y="13" width="8" height="8" fill="#FFB900" />
+      </svg>
+    );
+  }
+
+  if (issuer.includes("LinkedIn")) {
+    return <LinkedInIcon className="size-5 text-[#0A66C2]" />;
+  }
+
+  if (issuer.includes("CITI")) {
+    return <BadgeCheck className="size-5 text-emerald-600" />;
+  }
+
+  return <Award className="size-5 text-foreground/80" />;
+}
+
 export default function CertificationsPage() {
   return (
     <PageReveal className="page-wrap">
       <SectionHeader
         eyebrow="Certifications"
-        title="Professional Learning, Clearly Presented"
-        description="A recruiter-friendly snapshot of credentials supporting UX, agile collaboration, and cloud development growth."
+        title="Verified Certifications"
+        description="Industry-recognized credentials supporting growth across UX research, cloud fundamentals, and professional practice."
       />
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2">
         {certifications.map((certification, index) => (
           <FadeIn key={certification.title} delay={0.05 * index}>
             <Card className="glass h-full">
               <CardHeader>
-                <div
-                  className={`mb-2 inline-flex h-10 min-w-10 items-center justify-center rounded-full px-2 text-xs font-semibold tracking-[0.16em] ${certification.logoClassName}`}
-                >
-                  {certification.logoLabel}
+                <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-xs font-medium text-muted-foreground">
+                  <IssuerIcon issuer={certification.issuer} />
+                  {certification.issuer}
                 </div>
                 <CardTitle>{certification.title}</CardTitle>
                 <CardDescription>
-                  {certification.issuer} • {certification.date}
+                  {certification.date}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -61,6 +86,11 @@ export default function CertificationsPage() {
                       Download PDF
                     </Link>
                   </Button>
+                </div>
+
+                <div className="space-y-2 rounded-xl border border-border/60 bg-background/40 p-3">
+                  <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">Certificate Preview</p>
+                  <PdfViewer src={certification.download} title={certification.title} />
                 </div>
               </CardContent>
             </Card>

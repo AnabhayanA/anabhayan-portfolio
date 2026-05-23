@@ -78,6 +78,39 @@ export default async function UxCaseStudyPage({ params }: Props) {
         </div>
       </FadeIn>
 
+      <section className="mt-6">
+        <FadeIn>
+          <Card className="glass">
+            <CardHeader>
+              <CardTitle>Project Snapshot</CardTitle>
+              <CardDescription>Quick context for recruiters and reviewers.</CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+              <div className="rounded-2xl border border-border/60 bg-background/35 p-4">
+                <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Role</p>
+                <p className="mt-2 text-sm font-medium text-foreground">{study.snapshot.role}</p>
+              </div>
+              <div className="rounded-2xl border border-border/60 bg-background/35 p-4">
+                <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Timeline</p>
+                <p className="mt-2 text-sm font-medium text-foreground">{study.snapshot.timeline}</p>
+              </div>
+              <div className="rounded-2xl border border-border/60 bg-background/35 p-4">
+                <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Collaboration</p>
+                <p className="mt-2 text-sm font-medium text-foreground">{study.snapshot.collaboration}</p>
+              </div>
+              <div className="rounded-2xl border border-border/60 bg-background/35 p-4">
+                <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Scope</p>
+                <p className="mt-2 text-sm font-medium text-foreground">{study.snapshot.scope}</p>
+              </div>
+              <div className="rounded-2xl border border-border/60 bg-background/35 p-4">
+                <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Impact</p>
+                <p className="mt-2 text-sm font-medium text-foreground">{study.snapshot.impact}</p>
+              </div>
+            </CardContent>
+          </Card>
+        </FadeIn>
+      </section>
+
       <section className="mt-6 grid gap-4 md:grid-cols-2">
         <FadeIn>
           <BulletSection title="Problem" items={[study.problem]} />

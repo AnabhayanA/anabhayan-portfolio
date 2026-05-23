@@ -12,7 +12,7 @@ import { type DevProject, devProjects } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Development",
-  description: "Technical and coding portfolio projects by Anabhayan Ahruran.",
+  description: "Project portfolio showing technical execution, delivery ownership, and cross-functional impact.",
 };
 
 const projectHighlights: Record<string, { badge: string; standout: string }> = {
@@ -103,7 +103,6 @@ function ProjectPreview({ project }: { project: DevProject }) {
               className="aspect-video w-full"
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
@@ -123,14 +122,14 @@ export default function DevelopmentPage() {
   return (
     <PageReveal className="page-wrap">
       <SectionHeader
-        eyebrow="Development Projects"
-        title="Technical Work, Cleanly Structured"
-        description="Recruiter-focused ordering: flagship builds first, then supporting work. Each project is framed by its strongest signal."
+        eyebrow="Project Portfolio"
+        title="Delivery and Execution Work"
+        description="Selected projects that demonstrate planning, collaboration, and execution from concept through implementation."
       />
 
       <div className="mb-4 flex items-center justify-between">
         <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Featured Projects</p>
-        <p className="text-xs text-muted-foreground">Highest-signal work for internships and product teams</p>
+        <p className="text-xs text-muted-foreground">Highest-signal projects for internship and early-career roles</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -139,8 +138,8 @@ export default function DevelopmentPage() {
 
           return (
           <FadeIn key={project.title} delay={0.05 * index}>
-            <Card className="glass h-full border-foreground/30">
-              <div className="h-36 rounded-t-xl border-b border-border/60 bg-[linear-gradient(140deg,rgba(255,255,255,0.14),rgba(255,255,255,0.03),rgba(255,255,255,0.1))]" />
+            <Card className="glass h-full border-border/80">
+              <div className="h-36 rounded-t-xl border-b border-border/60 bg-[linear-gradient(145deg,rgba(148,163,184,0.16),rgba(148,163,184,0.04),rgba(148,163,184,0.1))]" />
               <CardHeader>
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <CardDescription>{project.category}</CardDescription>
@@ -152,6 +151,16 @@ export default function DevelopmentPage() {
                 <CardDescription>{project.description}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="grid gap-2 rounded-xl border border-border/60 bg-background/35 p-3 text-sm text-muted-foreground sm:grid-cols-2">
+                  <div>
+                    <p className="text-[0.68rem] tracking-[0.22em] uppercase">Role</p>
+                    <p className="mt-1 font-medium text-foreground">{project.snapshot.role}</p>
+                  </div>
+                  <div>
+                    <p className="text-[0.68rem] tracking-[0.22em] uppercase">Impact</p>
+                    <p className="mt-1 font-medium text-foreground">{project.snapshot.impact}</p>
+                  </div>
+                </div>
                 {highlight ? (
                   <div className="rounded-xl border border-border/70 bg-background/40 px-3 py-2 text-sm text-foreground">
                     <span className="font-medium">Why it stands out:</span> {highlight.standout}
@@ -202,7 +211,7 @@ export default function DevelopmentPage() {
 
       <div className="mb-4 mt-10 flex items-center justify-between">
         <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Additional Projects</p>
-        <p className="text-xs text-muted-foreground">Supporting depth across web fundamentals and systems work</p>
+        <p className="text-xs text-muted-foreground">Additional evidence of breadth across web and systems work</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -210,13 +219,23 @@ export default function DevelopmentPage() {
           return (
             <FadeIn key={project.title} delay={0.05 * (index + featuredProjects.length)}>
               <Card className="glass h-full">
-                <div className="h-24 rounded-t-xl border-b border-border/60 bg-[linear-gradient(140deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03),rgba(255,255,255,0.08))]" />
+                <div className="h-24 rounded-t-xl border-b border-border/60 bg-[linear-gradient(145deg,rgba(148,163,184,0.12),rgba(148,163,184,0.03),rgba(148,163,184,0.08))]" />
                 <CardHeader>
                   <CardDescription>{project.category}</CardDescription>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  <div className="grid gap-2 rounded-xl border border-border/60 bg-background/35 p-3 text-sm text-muted-foreground sm:grid-cols-2">
+                    <div>
+                      <p className="text-[0.68rem] tracking-[0.22em] uppercase">Role</p>
+                      <p className="mt-1 font-medium text-foreground">{project.snapshot.role}</p>
+                    </div>
+                    <div>
+                      <p className="text-[0.68rem] tracking-[0.22em] uppercase">Impact</p>
+                      <p className="mt-1 font-medium text-foreground">{project.snapshot.impact}</p>
+                    </div>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((item) => (
                       <Badge key={item} variant="outline">

@@ -68,13 +68,13 @@ export default function UxPage() {
     <PageReveal className="page-wrap">
       <SectionHeader
         eyebrow="UX / Product Design"
-        title="Design-First Case Studies"
-        description="Recruiter-first ordering: highest-impact UX work first, with each case study framed by its strongest signal."
+        title="UX Case Studies"
+        description="Research and design work organized for quick review, with strongest impact stories presented first."
       />
 
       <div className="mb-4 flex items-center justify-between">
         <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Featured Case Studies</p>
-        <p className="text-xs text-muted-foreground">Best representation of research, outcomes, and execution</p>
+        <p className="text-xs text-muted-foreground">Most complete examples of research rigor, synthesis, and outcomes</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -84,7 +84,7 @@ export default function UxPage() {
 
           return (
             <FadeIn key={study.slug} delay={0.05 * index}>
-              <Card className="glass h-full border-foreground/30">
+              <Card className="glass h-full border-border/80">
                 {coverImage ? (
                 <div className="relative h-44 w-full overflow-hidden rounded-t-xl">
                   <Image
@@ -109,6 +109,16 @@ export default function UxPage() {
                   <CardDescription>{study.problem}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  <div className="grid gap-2 rounded-xl border border-border/60 bg-background/35 p-3 text-sm text-muted-foreground sm:grid-cols-2">
+                    <div>
+                      <p className="text-[0.68rem] tracking-[0.22em] uppercase">Role</p>
+                      <p className="mt-1 font-medium text-foreground">{study.snapshot.role}</p>
+                    </div>
+                    <div>
+                      <p className="text-[0.68rem] tracking-[0.22em] uppercase">Impact</p>
+                      <p className="mt-1 font-medium text-foreground">{study.snapshot.impact}</p>
+                    </div>
+                  </div>
                   {highlight ? (
                     <div className="rounded-xl border border-border/70 bg-background/40 px-3 py-2 text-sm text-foreground">
                       <span className="font-medium">Why it stands out:</span> {highlight.standout}
@@ -129,7 +139,7 @@ export default function UxPage() {
                     <p className="mb-2 text-xs tracking-[0.2em] text-muted-foreground uppercase">Skills</p>
                     <div className="flex flex-wrap gap-2">
                       {study.skills.map((skill) => (
-                        <Badge key={skill} variant="secondary">
+                        <Badge key={skill} variant="outline" className="bg-background/60">
                           {skill}
                         </Badge>
                       ))}
@@ -149,7 +159,7 @@ export default function UxPage() {
 
       <div className="mb-4 mt-10 flex items-center justify-between">
         <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Additional Case Studies</p>
-        <p className="text-xs text-muted-foreground">Supporting work that expands method range and product thinking</p>
+        <p className="text-xs text-muted-foreground">Supporting studies that demonstrate method range and product judgment</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -178,6 +188,16 @@ export default function UxPage() {
                   <CardDescription>{study.problem}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  <div className="grid gap-2 rounded-xl border border-border/60 bg-background/35 p-3 text-sm text-muted-foreground sm:grid-cols-2">
+                    <div>
+                      <p className="text-[0.68rem] tracking-[0.22em] uppercase">Role</p>
+                      <p className="mt-1 font-medium text-foreground">{study.snapshot.role}</p>
+                    </div>
+                    <div>
+                      <p className="text-[0.68rem] tracking-[0.22em] uppercase">Impact</p>
+                      <p className="mt-1 font-medium text-foreground">{study.snapshot.impact}</p>
+                    </div>
+                  </div>
                   <p className="text-sm text-muted-foreground">{study.teaser}</p>
                   <Button asChild className="w-full justify-between rounded-full bg-foreground text-background hover:bg-foreground/90">
                     <Link href={`/ux/${study.slug}`}>

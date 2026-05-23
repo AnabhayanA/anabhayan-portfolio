@@ -12,7 +12,7 @@ import { certifications } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Resume",
-  description: "Resume page with embedded viewer placeholder and downloadable link.",
+  description: "Project management resume hub with recruiter-ready highlights, qualifications, and supporting credentials.",
 };
 
 export default function ResumePage() {
@@ -20,8 +20,8 @@ export default function ResumePage() {
     <PageReveal className="page-wrap">
       <SectionHeader
         eyebrow="Resume"
-        title="Professional Snapshot"
-        description="A concise summary of experience, technical strengths, and internship focus areas with quick recruiter access."
+        title="Resume and Qualifications"
+        description="Concise overview of project management trajectory, strengths, and credentials for recruiter and hiring-manager review."
       />
 
       <div className="grid gap-4 lg:grid-cols-[1.3fr_0.7fr]">
@@ -29,9 +29,9 @@ export default function ResumePage() {
           <Card className="glass h-full">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <FileText className="size-5 text-foreground/70" /> Embedded Resume Viewer
+                <FileText className="size-5 text-foreground/70" /> Resume Viewer
               </CardTitle>
-              <CardDescription>Replace this placeholder panel with an embedded PDF resume when ready.</CardDescription>
+              <CardDescription>Connect your latest resume PDF here so recruiters can review the full story without leaving the site.</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid min-h-[380px] place-items-center rounded-2xl border border-dashed border-border/70 bg-background/30 p-6 text-center text-sm text-muted-foreground">
@@ -47,12 +47,13 @@ export default function ResumePage() {
               <CardTitle>Highlights</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted-foreground">
-              <p>Information Systems student at NJIT with product, UX, and development focus.</p>
-              <p>Hands-on experience with modern web tools, research methods, and team collaboration.</p>
-              <p>Actively pursuing internships across UX Design, Product Design, Frontend, and Cloud tracks.</p>
+              <p>Information Systems student at NJIT building toward a Project Manager career.</p>
+              <p>Hands-on experience across project planning, team collaboration, UX research, and technical execution.</p>
+              <p>Actively pursuing internships in Project Management, Product, UX, and technology-focused tracks.</p>
+              <p>Strengths include turning ambiguous requirements into structured, reviewable work that feels ready for real teams.</p>
               <Button asChild className="mt-2 w-full rounded-full bg-foreground text-background hover:bg-foreground/90">
-                <Link href="#">
-                  <Download className="size-4" /> Download Resume
+                <Link href="mailto:aahruran@gmail.com?subject=Resume%20Request%20-%20Anabhayan%20Ahruran">
+                  <Download className="size-4" /> Request Resume Copy
                 </Link>
               </Button>
             </CardContent>
@@ -65,7 +66,7 @@ export default function ResumePage() {
           <div>
             <h2 className="text-2xl md:text-3xl">Supporting Credentials</h2>
             <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-              Direct access to certification PDFs and verification pages from the same recruiter-facing hub.
+              Direct access to certification PDFs and verification pages from one recruiter-facing hub.
             </p>
           </div>
         </div>

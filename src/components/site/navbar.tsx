@@ -3,30 +3,65 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/site/theme-toggle";
 import { navItems } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export function SiteNavbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const isActive = useMemo(
     () => (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href)),
     [pathname]
   );
 
+  useEffect(() => {
+    function onScroll() {
+      setIsScrolled(window.scrollY > 20);
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+    <header
+      className={cn(
+        "sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl transition-all duration-300",
+        isScrolled ? "shadow-[0_2px_18px_rgba(2,6,23,0.08)]" : "shadow-[0_1px_0_rgba(255,255,255,0.06)]"
+      )}
+    >
+      <div
+        className={cn(
+          "mx-auto flex w-full max-w-6xl items-center justify-between px-4 md:px-6 transition-all duration-300",
+          isScrolled ? "py-2" : "py-3"
+        )}
+      >
         <Link href="/" className="flex items-center gap-3">
-          <span className="inline-flex size-9 items-center justify-center rounded-full border border-border bg-foreground text-sm font-semibold text-background">
+          <span
+            className={cn(
+              "inline-flex items-center justify-center rounded-full border border-border/80 bg-foreground font-semibold text-background shadow-sm transition-all duration-300",
+              isScrolled ? "size-8 text-xs" : "size-9 text-sm"
+            )}
+          >
             AA
           </span>
-          <span className="hidden text-sm text-muted-foreground md:inline">Anabhayan Ahruran</span>
+          <span
+            className={cn(
+              "hidden text-muted-foreground md:inline transition-all duration-300",
+              isScrolled ? "text-xs" : "text-sm"
+            )}
+          >
+            Anabhayan Ahruran • Portfolio
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -37,7 +72,7 @@ export function SiteNavbar() {
               className={cn(
                 "rounded-full px-3 py-2 text-sm transition-colors",
                 isActive(item.href)
-                  ? "bg-primary text-primary-foreground"
+                  ? "bg-foreground text-background"
                   : "text-muted-foreground hover:bg-secondary hover:text-foreground"
               )}
             >
@@ -47,7 +82,6 @@ export function SiteNavbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <Button
             type="button"
             size="icon"
@@ -62,7 +96,7 @@ export function SiteNavbar() {
       </div>
 
       {open ? (
-        <nav className="mx-auto mb-3 grid w-[calc(100%-2rem)] max-w-6xl grid-cols-2 gap-2 rounded-2xl border border-border/60 bg-card/90 p-3 backdrop-blur lg:hidden">
+        <nav className="mx-auto mb-3 grid w-[calc(100%-2rem)] max-w-6xl grid-cols-2 gap-2 rounded-2xl border border-border/70 bg-card/95 p-3 shadow-lg backdrop-blur lg:hidden">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -70,7 +104,7 @@ export function SiteNavbar() {
               className={cn(
                 "rounded-xl px-3 py-2 text-sm",
                 isActive(item.href)
-                  ? "bg-primary text-primary-foreground"
+                  ? "bg-foreground text-background"
                   : "text-muted-foreground hover:bg-secondary hover:text-foreground"
               )}
               onClick={() => setOpen(false)}
