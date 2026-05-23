@@ -160,8 +160,9 @@ export function PdfViewer({ src, title }: PdfViewerProps) {
     async function renderPage(activeDocument: PdfJsDocument) {
       const page = await activeDocument.getPage(pageNumber);
       const initialViewport = page.getViewport({ scale: 1 });
-      const scale = Math.max(0.5, (containerWidth - 2) / initialViewport.width);
+      const scale = Math.max(0.82, (containerWidth - 2) / initialViewport.width);
       const viewport = page.getViewport({ scale });
+      const pixelRatio = typeof window !== "undefined" ? Math.max(1, window.devicePixelRatio || 1) : 1;
 
       const canvas = canvasRef.current;
       if (!canvas) {
@@ -173,8 +174,11 @@ export function PdfViewer({ src, title }: PdfViewerProps) {
         return;
       }
 
-      canvas.width = Math.floor(viewport.width);
-      canvas.height = Math.floor(viewport.height);
+      canvas.width = Math.floor(viewport.width * pixelRatio);
+      canvas.height = Math.floor(viewport.height * pixelRatio);
+      canvas.style.width = `${Math.floor(viewport.width)}px`;
+      canvas.style.height = `${Math.floor(viewport.height)}px`;
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
       if (!cancelled) {
         await page.render({ canvasContext: context, viewport }).promise;
@@ -190,7 +194,7 @@ export function PdfViewer({ src, title }: PdfViewerProps) {
 
   return (
     <div className="space-y-3">
-      <div ref={containerRef} className="w-full rounded-xl border border-border/50 bg-background">
+      <div ref={containerRef} className="w-full overflow-x-auto rounded-xl border border-border/50 bg-background">
         {isLoading ? (
           <div className="grid min-h-[260px] place-items-center text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-2">

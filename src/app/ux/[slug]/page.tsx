@@ -183,7 +183,8 @@ export default async function UxCaseStudyPage({ params }: Props) {
                           alt={artifact.label}
                           width={1600}
                           height={1000}
-                          className="h-auto w-full rounded-xl border border-border/50"
+                          className="h-auto w-full rounded-xl border border-border/50 bg-black/35 object-contain p-1"
+                          quality={78}
                         />
                       ) : null}
 

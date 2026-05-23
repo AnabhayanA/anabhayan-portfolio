@@ -184,6 +184,12 @@
     border-color: rgba(255, 255, 255, 0.42);
   }
 
+  @media (max-width: 640px) {
+    .photo-card:hover {
+      transform: var(--stack-transform) translateY(-3px) scale(1.006);
+    }
+  }
+
   .photo-frame {
     border-radius: 0.9rem;
   }
@@ -248,14 +254,6 @@
     animation-direction: reverse;
   }
 
-  .comic-track-chaos {
-    animation-direction: alternate;
-  }
-
-  .comic-track-chaos-reverse {
-    animation-direction: alternate-reverse;
-  }
-
   .comic-marquee:hover .comic-track {
     animation-play-state: paused;
   }
@@ -265,6 +263,13 @@
     padding-top: 1.05rem;
     padding-bottom: 1.05rem;
     overflow: hidden;
+  }
+
+  @media (max-width: 640px) {
+    .film-card {
+      padding-top: 0.9rem;
+      padding-bottom: 0.9rem;
+    }
   }
 
   .film-card::before,
@@ -290,28 +295,6 @@
     bottom: 0.26rem;
   }
 
-  .comic-panel {
-    position: relative;
-    animation: comic-panel-pulse 1.35s ease-in-out infinite alternate;
-  }
-
-  .comic-panel:nth-child(2n) {
-    animation-delay: 0.2s;
-  }
-
-  .comic-panel:nth-child(3n) {
-    animation-delay: 0.35s;
-  }
-
-  .comic-panel::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.07) 0, transparent 60%);
-    mix-blend-mode: screen;
-  }
-
   @keyframes comic-scroll {
     0% {
       transform: translateX(0);
@@ -322,22 +305,8 @@
     }
   }
 
-  @keyframes comic-panel-pulse {
-    0% {
-      filter: brightness(0.94) contrast(1);
-    }
-
-    100% {
-      filter: brightness(1.03) contrast(1.05);
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .comic-track {
-      animation: none;
-    }
-
-    .comic-panel {
       animation: none;
     }
   }
