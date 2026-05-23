@@ -538,7 +538,7 @@ export const quickStats = [
 ] as const;
 
 export const profilePhoto: ProfilePhoto = {
-  src: withBasePath("/events/campus/profile.png"),
+  src: withBasePath("/events-optimized/campus/profile.jpg"),
   alt: "Anabhayan Ahruran at a hackathon",
   caption: "Hackathon highlight",
 };
@@ -547,7 +547,7 @@ export const lifeMoments: LifeMoment[] = [
   {
     title: "Gear Up Event Moment",
     description: "Gear Up moment representing student engagement, leadership, and community impact.",
-    image: withBasePath("/events/campus/gear-up-campus.jpeg"),
+    image: withBasePath("/events-optimized/campus/gear-up-campus.jpg"),
     label: "On-Campus + Leadership",
     location: "campus",
     group: "Gear Up",
@@ -555,7 +555,7 @@ export const lifeMoments: LifeMoment[] = [
   {
     title: "Gear Up Creative Activity",
     description: "A mentorship activity snapshot from Gear Up showing hands-on guidance and student support.",
-    image: withBasePath("/events/campus/gear-up-activity.jpeg"),
+    image: withBasePath("/events-optimized/campus/gear-up-activity.jpg"),
     label: "On-Campus + Leadership",
     location: "campus",
     group: "Gear Up",
@@ -563,7 +563,7 @@ export const lifeMoments: LifeMoment[] = [
   {
     title: "Mentor U Networking Event",
     description: "Group photo from Mentor U highlighting collaboration, networking, and professional growth.",
-    image: withBasePath("/events/campus/mentor-u-networking.jpeg"),
+    image: withBasePath("/events-optimized/campus/mentor-u-networking.jpg"),
     label: "On-Campus + Networking",
     location: "campus",
     group: "Mentor U",
@@ -571,56 +571,56 @@ export const lifeMoments: LifeMoment[] = [
   {
     title: "Soccer League Group",
     description: "Soccer league team moment showing teamwork, commitment, and community involvement.",
-    image: withBasePath("/events/campus/soccer-league-group.jpg"),
+    image: withBasePath("/events-optimized/campus/soccer-league-group.jpg"),
     label: "On-Campus + Teamwork",
     location: "campus",
     group: "Soccer League",
   },
   {
     title: "ALPFA Q1 Spring Mixer",
-    image: withBasePath("/events/off-campus/alpfa-q1-mixer-01.jpeg"),
+    image: withBasePath("/events-optimized/off-campus/alpfa-q1-mixer-01.jpg"),
     label: "Off-Campus + ALPFA",
     location: "off-campus",
     group: "ALPFA Spring Q1 Mixer",
   },
   {
     title: "ALPFA Hackathon Host (1)",
-    image: withBasePath("/events/off-campus/hackathon-host-01.jpeg"),
+    image: withBasePath("/events-optimized/off-campus/hackathon-host-01.jpg"),
     label: "Off-Campus + ALPFA",
     location: "off-campus",
     group: "ALPFA Hackathon",
   },
   {
     title: "ALPFA Hackathon Host (2)",
-    image: withBasePath("/events/off-campus/hackathon-host-02.jpeg"),
+    image: withBasePath("/events-optimized/off-campus/hackathon-host-02.jpg"),
     label: "Off-Campus + ALPFA",
     location: "off-campus",
     group: "ALPFA Hackathon",
   },
   {
     title: "ALPFA Hackathon Host (3)",
-    image: withBasePath("/events/off-campus/hackathon-host-03.jpeg"),
+    image: withBasePath("/events-optimized/off-campus/hackathon-host-03.jpg"),
     label: "Off-Campus + ALPFA",
     location: "off-campus",
     group: "ALPFA Hackathon",
   },
   {
     title: "ALPFA RUNB Networking",
-    image: withBasePath("/events/off-campus/campus-alpfa-runb-networking-01.jpeg"),
+    image: withBasePath("/events-optimized/off-campus/campus-alpfa-runb-networking-01.jpg"),
     label: "Off-Campus + ALPFA",
     location: "off-campus",
     group: "ALPFA RUNB Networking",
   },
   {
     title: "Doctor's Office Team Moment",
-    image: withBasePath("/events/off-campus/doctors-office-01.jpeg"),
+    image: withBasePath("/events-optimized/off-campus/doctors-office-01.jpg"),
     label: "Off-Campus + Work",
     location: "off-campus",
     group: "Doctor's Office",
   },
   {
     title: "Doctor's Office Work Highlight",
-    image: withBasePath("/events/off-campus/doctors-office-02.jpeg"),
+    image: withBasePath("/events-optimized/off-campus/doctors-office-02.jpg"),
     label: "Off-Campus + Work",
     location: "off-campus",
     group: "Doctor's Office",
@@ -630,7 +630,7 @@ export const lifeMoments: LifeMoment[] = [
   },
   {
     title: "Microsoft Networking Event",
-    image: withBasePath("/events/off-campus/microsoft-networking-01.jpeg"),
+    image: withBasePath("/events-optimized/off-campus/microsoft-networking-01.jpg"),
     label: "Off-Campus + Networking",
     location: "off-campus",
     group: "Microsoft Event",
@@ -640,7 +640,7 @@ export const lifeMoments: LifeMoment[] = [
   },
   {
     title: "SHPE Convention",
-    image: withBasePath("/events/off-campus/shpe-convention.jpeg"),
+    image: withBasePath("/events-optimized/off-campus/shpe-convention.jpg"),
     label: "Off-Campus + Professional",
     location: "off-campus",
     group: "SHPE Convention",
