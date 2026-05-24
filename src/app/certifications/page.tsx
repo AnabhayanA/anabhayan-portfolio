@@ -10,6 +10,7 @@ import { SectionHeader } from "@/components/site/section-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { stripBasePath } from "@/lib/base-path";
 import { certifications } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -82,15 +83,19 @@ export default function CertificationsPage() {
                     </Link>
                   </Button>
                   <Button asChild className="w-full rounded-full">
-                    <a href={certification.download} target="_blank" rel="noreferrer" download>
+                    <a href={stripBasePath(certification.download)} target="_blank" rel="noreferrer" download>
                       Download PDF
                     </a>
                   </Button>
                 </div>
 
-                <div className="space-y-2 rounded-xl border border-border/60 bg-background/40 p-2.5 sm:p-3">
+                <div className="space-y-2 overflow-hidden rounded-xl border border-border/60 bg-background/40 p-2 sm:p-3">
                   <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">Certificate Preview</p>
-                  <PdfViewer src={certification.download} title={certification.title} />
+                  <PdfViewer
+                    src={certification.download}
+                    title={certification.title}
+                    previewZoom={certification.issuer.includes("CITI") ? 1.12 : 1.04}
+                  />
                 </div>
               </CardContent>
             </Card>

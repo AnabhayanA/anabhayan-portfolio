@@ -10,6 +10,7 @@ type PdfViewerProps = {
   src: string;
   title: string;
   preferredMobileWidth?: number;
+  previewZoom?: number;
 };
 
 type PdfJsPage = {
@@ -87,7 +88,7 @@ function loadPdfJsRuntime(): Promise<PdfJsModule> {
   return pdfJsLoaderPromise;
 }
 
-export function PdfViewer({ src, title, preferredMobileWidth }: PdfViewerProps) {
+export function PdfViewer({ src, title, preferredMobileWidth, previewZoom = 1 }: PdfViewerProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -178,7 +179,7 @@ export function PdfViewer({ src, title, preferredMobileWidth }: PdfViewerProps) 
         return containerWidth - 2;
       })();
       const minScale = preferredMobileWidth ? 0.82 : 0.46;
-      const scale = Math.max(minScale, viewportTargetWidth / initialViewport.width);
+      const scale = Math.max(minScale, viewportTargetWidth / initialViewport.width) * previewZoom;
       const viewport = page.getViewport({ scale });
       const pixelRatio = typeof window !== "undefined" ? Math.max(1, window.devicePixelRatio || 1) : 1;
 
@@ -208,7 +209,7 @@ export function PdfViewer({ src, title, preferredMobileWidth }: PdfViewerProps) 
     return () => {
       cancelled = true;
     };
-  }, [pdfDocument, pageNumber, containerWidth, preferredMobileWidth]);
+  }, [pdfDocument, pageNumber, containerWidth, preferredMobileWidth, previewZoom]);
 
   return (
     <div className="space-y-3">
